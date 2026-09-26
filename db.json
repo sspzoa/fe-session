@@ -1,5 +1,18 @@
 {
   "posts": [
-    { "id": "1", "title": "첫 글", "content": "안녕하세요!", "author": "도윤", "createdAt": "2026-09-22" }
+    {
+      "id": "1",
+      "title": "첫 글",
+      "content": "안녕하세요!",
+      "author": "도윤",
+      "createdAt": "2026-09-22"
+    },
+    {
+      "title": "123",
+      "author": "123",
+      "content": "123",
+      "createdAt": "2026-09-26",
+      "id": "5oCLk7rlFwk"
+    }
   ]
 }

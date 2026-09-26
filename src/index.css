@@ -1,0 +1,4 @@
+@layer reset, base, tokens, recipes, utilities;
+
+:root { font-family: system-ui, sans-serif; color: #18181b; background: #fff; }
+button, input, textarea { font: inherit; }
