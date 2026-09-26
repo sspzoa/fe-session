@@ -1,0 +1,52 @@
+:root {
+  font-family: system-ui, sans-serif;
+  color: #1f2937;
+  background: #f8fafc;
+}
+
+body { margin: 0; }
+button, input, textarea { font: inherit; }
+
+.board-page {
+  width: min(720px, calc(100% - 32px));
+  margin: 40px auto;
+}
+
+.board-page header p, .post-meta { color: #64748b; }
+
+.board-panel {
+  padding: 20px 24px;
+  margin-top: 24px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: white;
+}
+
+.board-panel h2 { margin-top: 0; }
+.board-panel label { display: block; margin: 14px 0 6px; font-weight: 600; }
+
+.board-panel input, .board-panel textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+}
+
+.board-actions { display: flex; gap: 8px; margin-top: 16px; }
+.board-actions button, .board-panel > div button {
+  padding: 8px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: #eff6ff;
+  cursor: pointer;
+}
+
+button:disabled { cursor: not-allowed; opacity: 0.5; }
+.board-posts { padding: 0; list-style: none; }
+.board-posts li { padding: 16px 0; border-bottom: 1px solid #e2e8f0; }
+.board-posts li:last-child { border-bottom: 0; }
+.board-posts h3 { margin: 0; }
+.post-meta { margin: 6px 0; font-size: 14px; }
+.post-content { white-space: pre-wrap; overflow-wrap: anywhere; }
+[role='alert'] { color: #b91c1c; }
