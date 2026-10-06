@@ -1,7 +1,7 @@
 import { css } from '../../../../styled-system/css'
-import { useCreatePost, useUpdatePost } from '../hooks/usePosts.js'
-import { usePostDraftStore } from '../store/usePostDraftStore.js'
-import { panel, field, button, primaryButton, actions, alert } from '../styles/postStyles.js'
+import { useCreatePost, useUpdatePost } from '../-queries.js'
+import { usePostDraftStore } from './store.js'
+import { panel, field, button, primaryButton, actions, alert } from '../-style.js'
 
 const fields = [
   { name: 'title', label: '제목' },

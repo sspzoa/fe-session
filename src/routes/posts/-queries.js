@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
-import { createPost, deletePost, getPost, getPosts, updatePost } from '../lib/postApi.js'
+import { createPost, deletePost, getPost, getPosts, updatePost } from '../../api/posts.js'
 
 const postsKey = ['posts']
 

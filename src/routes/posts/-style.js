@@ -1,4 +1,4 @@
-import { css } from '../../../../styled-system/css'
+import { css } from '../../../styled-system/css'
 
 export const page = css({ width: 'min(760px, calc(100% - 40px))', mx: 'auto', my: { base: '10', md: '16' } })
 export const panel = css({ p: { base: '5', md: '7' }, mt: '6', mb: '8', borderWidth: '1px', borderColor: 'gray.200', borderRadius: 'md', bg: 'white' })

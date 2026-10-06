@@ -1,24 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Link } from '@tanstack/react-router'
-import { css } from '../../../../styled-system/css'
-import { usePosts } from '../hooks/usePosts.js'
-import PostForm from '../components/PostForm.jsx'
-import { usePostDraftStore } from '../store/usePostDraftStore.js'
-import { page, field, button, primaryButton, muted, alert } from '../styles/postStyles.js'
+import { css } from '../../../styled-system/css'
+import { usePosts } from './-queries.js'
+import PostForm from './-post-form/index.jsx'
+import { usePostEditor } from './-post-form/use-post-editor.js'
+import { page, field, button, primaryButton, muted, alert } from './-style.js'
 
 export default function PostsPage() {
-  useEffect(() => () => usePostDraftStore.getState().resetDraft(), [])
   const [search, setSearch] = useState('')
-  const [isWriting, setIsWriting] = useState(false)
+  const editor = usePostEditor()
   const postsQuery = usePosts()
   const filteredPosts = (postsQuery.data ?? []).filter((post) =>
     post.title.toLowerCase().includes(search.trim().toLowerCase()),
   )
-
-  function closeForm() {
-    usePostDraftStore.getState().resetDraft()
-    setIsWriting(false)
-  }
 
   return (
     <main className={page}>
@@ -27,12 +21,12 @@ export default function PostsPage() {
           <h1 className={css({ fontSize: '3xl', fontWeight: 'bold', letterSpacing: 'tight' })}>게시판</h1>
           <p className={css({ color: 'gray.500', fontSize: 'sm', mt: '2' })}>글을 모아 보는 공간</p>
         </div>
-        <button className={primaryButton} type="button" aria-expanded={isWriting} aria-controls="post-form" onClick={() => isWriting ? closeForm() : setIsWriting(true)}>
-          {isWriting ? '닫기' : '글쓰기'}
+        <button className={primaryButton} type="button" aria-expanded={editor.isOpen} aria-controls="post-form" onClick={() => editor.isOpen ? editor.close() : editor.open()}>
+          {editor.isOpen ? '닫기' : '글쓰기'}
         </button>
       </header>
 
-      {isWriting && <PostForm onSaved={closeForm} onCancel={closeForm} />}
+      {editor.isOpen && <PostForm onSaved={editor.close} onCancel={editor.close} />}
 
       <section aria-labelledby="posts-title">
         <div className={css({ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '4', mb: '4' })}>
